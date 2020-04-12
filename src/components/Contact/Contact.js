@@ -7,21 +7,15 @@ import {
   DeleteButton,
 } from './Contact.styled';
 
-const Contact = ({ item: { id, name, number }, deleteContact }) => {
-  const deleteContactItem = () => {
-    deleteContact(id);
-  };
-
-  return (
-    <ContactContainer>
-      <ContactName>{name}</ContactName>
-      <ContactNumber>{number}</ContactNumber>
-      <DeleteButton type="button" onClick={deleteContactItem}>
-        &#10006;
-      </DeleteButton>
-    </ContactContainer>
-  );
-};
+const Contact = ({ item: { id, name, number }, deleteContact }) => (
+  <ContactContainer>
+    <ContactName>{name}</ContactName>
+    <ContactNumber>{number}</ContactNumber>
+    <DeleteButton type="button" onClick={() => deleteContact(id)}>
+      &#10006;
+    </DeleteButton>
+  </ContactContainer>
+);
 
 Contact.propTypes = {
   item: PropTypes.shape({

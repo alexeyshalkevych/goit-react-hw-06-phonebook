@@ -1,5 +1,5 @@
-import { GET_ALL_CONTACTS, ADD_CONTACT, DELETE_CONTACT } from './actionTypes';
-import { isInvalidContact, hasStateContact } from '../utils/helpers';
+import { GET_ALL_CONTACTS, ADD_CONTACT, DELETE_CONTACT } from '../actionTypes';
+import { isInvalidContact, hasStateContact } from '../../utils/helpers';
 
 const contactReducer = (state = [], { type, payload }) => {
   switch (type) {
@@ -23,6 +23,7 @@ const contactReducer = (state = [], { type, payload }) => {
 
       return filteredState;
     }
+
     default:
       return state;
   }

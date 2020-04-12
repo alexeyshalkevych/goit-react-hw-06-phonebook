@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
-import { GET_ALL_CONTACTS, ADD_CONTACT, DELETE_CONTACT } from './actionTypes';
+import { GET_ALL_CONTACTS, ADD_CONTACT, DELETE_CONTACT } from '../actionTypes';
 
 export const getAllContacts = contacts => ({
   type: GET_ALL_CONTACTS,

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { getAllContacts } from '../../redux/contactsActions';
+import { getAllContacts } from '../../redux/contacts/contactsActions';
 import Phonebook from '../Phonebook/Phonebook';
 
 const mapStateToProps = state => ({
