@@ -2,3 +2,5 @@ export const GET_ALL_CONTACTS = 'GET_ALL_CONTACTS';
 export const ADD_CONTACT = 'ADD_CONTACT';
 export const DELETE_CONTACT = 'DELETE_CONTACT';
 export const CHANGE_FILTER = 'CHANGE_FILTER';
+export const CHANGE_INPUT = 'CHANGE_INPUT';
+export const RESET_INPUT = 'RESET_INPUT';

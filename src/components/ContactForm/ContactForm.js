@@ -1,33 +1,9 @@
-import React, { useReducer } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { FormContainer, Label, InputField, Button } from './ContactForm.styled';
 
-const initialState = {
-  name: '',
-  number: '',
-};
-
-const reducer = (state, { type, field, value }) => {
-  switch (type) {
-    case 'RESET':
-      return initialState;
-    case 'CHANGE_INPUT':
-      return {
-        ...state,
-        [field]: value,
-      };
-    default:
-      return state;
-  }
-};
-
-const ContactForm = ({ addContact }) => {
-  const [state, dispatch] = useReducer(reducer, initialState);
-  const { name, number } = state;
-
-  const resetForm = () => {
-    dispatch({ type: 'RESET' });
-  };
+const ContactForm = ({ addContact, changeInput, resetForm, form }) => {
+  const { name, number } = form;
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -40,7 +16,7 @@ const ContactForm = ({ addContact }) => {
   const handleChange = e => {
     const { name, value } = e.target;
 
-    dispatch({ type: 'CHANGE_INPUT', field: name, value });
+    changeInput(name, value);
   };
 
   return (
@@ -72,6 +48,12 @@ const ContactForm = ({ addContact }) => {
 
 ContactForm.propTypes = {
   addContact: PropTypes.func.isRequired,
+  form: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    number: PropTypes.string.isRequired,
+  }).isRequired,
+  changeInput: PropTypes.func.isRequired,
+  resetForm: PropTypes.func.isRequired,
 };
 
 export default ContactForm;
