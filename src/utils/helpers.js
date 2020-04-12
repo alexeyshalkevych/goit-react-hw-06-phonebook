@@ -1,13 +1,14 @@
 import { toast } from 'react-toastify';
 
-const filterContacts = (contacts, filter) =>
-  contacts.filter(contact =>
-    contact.name.toLowerCase().includes(filter.toLowerCase()),
-  );
-
+/**
+ * find data contact
+ */
 const findContact = (contacts, contact) =>
   contacts.find(item => item.name === contact.name);
 
+/**
+ * save to localStorage
+ */
 const save = (key, value) => {
   try {
     localStorage.setItem(key, JSON.stringify(value));
@@ -16,6 +17,9 @@ const save = (key, value) => {
   }
 };
 
+/**
+ * get data from localStorage
+ */
 const get = key => {
   try {
     const items = localStorage.getItem(key);
@@ -26,6 +30,9 @@ const get = key => {
   }
 };
 
+/**
+ * check valid contact data
+ */
 const isInvalidContact = ({ name, number }) => {
   if (name.length <= 1 || name.trim() === 0) {
     toast.error(`Your name is not valid. Please enter correct information.`);
@@ -40,6 +47,9 @@ const isInvalidContact = ({ name, number }) => {
   return false;
 };
 
+/**
+ * check for availability data in state
+ */
 const hasStateContact = (state, contact) => {
   const stateContact = findContact(state, contact);
 
@@ -51,11 +61,4 @@ const hasStateContact = (state, contact) => {
   return false;
 };
 
-export {
-  filterContacts,
-  findContact,
-  save,
-  get,
-  isInvalidContact,
-  hasStateContact,
-};
+export { findContact, save, get, isInvalidContact, hasStateContact };

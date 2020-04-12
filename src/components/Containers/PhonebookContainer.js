@@ -1,9 +1,10 @@
 import { connect } from 'react-redux';
 import { getAllContacts } from '../../redux/contacts/contactsActions';
 import Phonebook from '../Phonebook/Phonebook';
+import { getContacts } from '../../redux/contacts/contactsSelectors';
 
 const mapStateToProps = state => ({
-  contacts: state.contacts,
+  contacts: getContacts(state),
 });
 
 const mapDispatchToProps = {
