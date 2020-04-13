@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import ContactForm from '../Containers/FormContainer';
 import ContactList from '../Containers/ContactListContainer';
 import ContactFilter from '../Containers/ContactFilterContainer';
-import { get, save } from '../../utils/helpers';
+import { getFromLocaleStorage, saveToLocaleStorage } from '../../utils/helpers';
 import {
   PhonebookContainer,
   PhonebookTitle,
@@ -19,7 +19,7 @@ const Phonebook = ({ getAllContacts, contacts }) => {
   useEffect(() => {
     setShowTitle(true);
 
-    const persistedContacts = get('contacts');
+    const persistedContacts = getFromLocaleStorage('contacts');
 
     if (persistedContacts) {
       getAllContacts(persistedContacts);
@@ -27,7 +27,7 @@ const Phonebook = ({ getAllContacts, contacts }) => {
   }, [getAllContacts]);
 
   useEffect(() => {
-    save('contacts', contacts);
+    saveToLocaleStorage('contacts', contacts);
   }, [contacts]);
 
   return (

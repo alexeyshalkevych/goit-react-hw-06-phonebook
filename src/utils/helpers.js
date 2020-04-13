@@ -9,7 +9,7 @@ const findContact = (contacts, contact) =>
 /**
  * save to localStorage
  */
-const save = (key, value) => {
+const saveToLocaleStorage = (key, value) => {
   try {
     localStorage.setItem(key, JSON.stringify(value));
   } catch (err) {
@@ -20,7 +20,7 @@ const save = (key, value) => {
 /**
  * get data from localStorage
  */
-const get = key => {
+const getFromLocaleStorage = key => {
   try {
     const items = localStorage.getItem(key);
 
@@ -61,4 +61,10 @@ const hasStateContact = (state, contact) => {
   return false;
 };
 
-export { findContact, save, get, isInvalidContact, hasStateContact };
+export {
+  findContact,
+  saveToLocaleStorage,
+  getFromLocaleStorage,
+  isInvalidContact,
+  hasStateContact,
+};
