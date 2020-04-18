@@ -1,9 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { FormContainer, Label, InputField, Button } from './ContactForm.styled';
 
-const ContactForm = ({ addContact, changeInput, resetForm, form }) => {
+const initialState = {
+  name: '',
+  number: '',
+};
+
+const ContactForm = ({ addContact }) => {
+  const [form, setForm] = useState(initialState);
   const { name, number } = form;
+
+  const resetForm = () => {
+    setForm(initialState);
+  };
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -16,7 +26,7 @@ const ContactForm = ({ addContact, changeInput, resetForm, form }) => {
   const handleChange = e => {
     const { name, value } = e.target;
 
-    changeInput(name, value);
+    setForm({ ...form, [name]: value });
   };
 
   return (
@@ -48,12 +58,6 @@ const ContactForm = ({ addContact, changeInput, resetForm, form }) => {
 
 ContactForm.propTypes = {
   addContact: PropTypes.func.isRequired,
-  form: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    number: PropTypes.string.isRequired,
-  }).isRequired,
-  changeInput: PropTypes.func.isRequired,
-  resetForm: PropTypes.func.isRequired,
 };
 
 export default ContactForm;

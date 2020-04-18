@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
 import ContactList from '../ContactList/ContactList';
-import { getContactsWithFilter } from '../../redux/contacts/contactsSelectors';
+import { getFilteredContacts } from '../../redux/contacts/contactsSelectors';
 
 const mapStateToProps = state => ({
-  contacts: getContactsWithFilter(state),
+  contacts: getFilteredContacts(state),
 });
 
 export default connect(mapStateToProps)(ContactList);

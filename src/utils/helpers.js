@@ -39,7 +39,7 @@ const isInvalidContact = ({ name, number }) => {
     return true;
   }
 
-  if (!number.match(/^\(?([0-9]{3})\)?[- ]?([0-9]{2})[- ]?([0-9]{2})$/)) {
+  if (number.length <= 1 || number.trim() === 0) {
     toast.error(`Your number is not valid. Please enter correct information.`);
     return true;
   }
