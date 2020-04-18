@@ -31,23 +31,6 @@ const getFromLocaleStorage = key => {
 };
 
 /**
- * check valid contact data
- */
-const isInvalidContact = ({ name, number }) => {
-  if (name.length <= 1 || name.trim() === 0) {
-    toast.error(`Your name is not valid. Please enter correct information.`);
-    return true;
-  }
-
-  if (number.length <= 1 || number.trim() === 0) {
-    toast.error(`Your number is not valid. Please enter correct information.`);
-    return true;
-  }
-
-  return false;
-};
-
-/**
  * check for availability data in state
  */
 const hasStateContact = (state, contact) => {
@@ -65,6 +48,5 @@ export {
   findContact,
   saveToLocaleStorage,
   getFromLocaleStorage,
-  isInvalidContact,
   hasStateContact,
 };

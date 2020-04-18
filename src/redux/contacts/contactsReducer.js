@@ -1,5 +1,5 @@
 import { GET_ALL_CONTACTS, ADD_CONTACT, DELETE_CONTACT } from '../actionTypes';
-import { isInvalidContact, hasStateContact } from '../../utils/helpers';
+import { hasStateContact } from '../../utils/helpers';
 
 const contactReducer = (state = [], { type, payload }) => {
   switch (type) {
@@ -9,9 +9,6 @@ const contactReducer = (state = [], { type, payload }) => {
 
     case ADD_CONTACT: {
       if (hasStateContact(state, payload)) {
-        return state;
-      }
-      if (isInvalidContact(payload)) {
         return state;
       }
 

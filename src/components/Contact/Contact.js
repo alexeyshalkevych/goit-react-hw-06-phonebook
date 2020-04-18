@@ -20,7 +20,7 @@ const Contact = ({ item: { id, name, number }, deleteContact }) => (
 Contact.propTypes = {
   item: PropTypes.shape({
     name: PropTypes.string.isRequired,
-    number: PropTypes.string.isRequired,
+    number: PropTypes.number.isRequired,
     id: PropTypes.string.isRequired,
   }).isRequired,
   deleteContact: PropTypes.func.isRequired,

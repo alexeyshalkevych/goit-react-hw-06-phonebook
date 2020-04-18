@@ -5,6 +5,12 @@ export const FormContainer = styled.form`
   margin-bottom: 20px;
   padding: 10px;
   box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.59);
+
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
 `;
 
 export const Label = styled.label`
@@ -26,6 +32,12 @@ export const InputField = styled.input`
     border-color: rgb(0, 106, 177);
     outline: none;
   }
+`;
+
+export const ErrorInput = styled.div`
+  margin: 0;
+  color: red;
+  margin-bottom: 10px;
 `;
 
 export const Button = styled.button`
